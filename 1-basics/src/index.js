@@ -1,7 +1,9 @@
 import _ from 'lodash'
 
-function updateHeader() {
+document.getElementById('update-button').addEventListener('click', function () {
   const el = document.getElementById('header')
+  el.innerHTML = 'this is updated version'
+
   const listEl = document.getElementById('shopping-list')
   const shoppingItems = ['Apple', 'orange', 'banana']
 
@@ -10,5 +12,4 @@ function updateHeader() {
     element.innerHTML = item
     listEl.appendChild(element)
   })
-  el.innerHTML = 'this is updated version'
-}
+})
