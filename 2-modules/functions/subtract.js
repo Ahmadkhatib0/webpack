@@ -2,4 +2,8 @@ function subtract(a, b) {
   return a - b
 }
 
-module.exports = subtract
+// ES6
+export default subtract
+
+// common js
+// module.exports = subtract

@@ -1,9 +1,10 @@
-function add(a, b) {
+export default function add(a, b) {
   return a + b
 }
 
-function addAndMuliply(a, b, c) {
+export function addAndMuliply(a, b, c) {
   return (a + b) * c
 }
 
-module.exports = { add, addAndMuliply }
+// COMMON JS
+// module.exports = { add, addAndMuliply }
