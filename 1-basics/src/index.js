@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 function updateHeader() {
   const el = document.getElementById('header')
   const listEl = document.getElementById('shopping-list')
