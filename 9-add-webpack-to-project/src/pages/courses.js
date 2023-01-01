@@ -1,9 +1,19 @@
-// import courseData from "../data/courses.json";
+import courseData from '../data/courses.json'
+import bootstrap from 'bootstrap'
+import $ from 'jquery'
+import typed from 'typed.js'
+import validate from 'toastr'
+import toastr from 'toastr'
+import _ from 'lodash'
+
+import '../index.css'
+import '../_vendor.scss'
+import '../assets/css/font-awesome.min.css'
 
 function loadCourses() {
-  const courseListSection = $("#course-list")[0];
+  const courseListSection = $('#course-list')[0]
 
-  let courseItems = "";
+  let courseItems = ''
   _.each(courseData, (course) => {
     const courseItem =
       '<div class="card mb-3 rounded-3" style="max-width: 350px"><div class="row g-0 p-3"><div class="col-md-4"> <img src="' +
@@ -14,11 +24,11 @@ function loadCourses() {
       course.description +
       '</p><p class="card-text"><strong>Author: </strong><small class="text-muted">' +
       course.author +
-      "</small></p></div></div></div> </div>";
-    courseItems += courseItem;
-  });
+      '</small></p></div></div></div> </div>'
+    courseItems += courseItem
+  })
 
-  courseListSection.innerHTML = courseItems;
+  courseListSection.innerHTML = courseItems
 }
 
-loadCourses();
+loadCourses()
