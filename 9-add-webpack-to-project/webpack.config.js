@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -40,6 +41,15 @@ module.exports = {
       template: './src/pages/courses.html',
       chunks: ['courses'],
       filename: 'courses.html',
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/assets/images/*'),
+          to: path.resolve(__dirname, 'dist'),
+          context: 'src', //without context, it will add also the src folder inside dist,
+        },
+      ],
     }),
   ],
 }
