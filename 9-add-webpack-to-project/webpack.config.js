@@ -4,6 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const MiniCss = require('mini-css-extract-plugin')
 const webpack = require('webpack')
+const { PurgeCSSPlugin } = require('purgecss-webpack-plugin')
+const glob = require('glob')
+
+const purgePath = { src: path.join(__dirname, 'src') }
 
 module.exports = {
   entry: {
@@ -58,6 +62,9 @@ module.exports = {
           context: 'src', //without context, it will add also the src folder inside dist,
         },
       ],
+    }),
+    new PurgeCSSPlugin({
+      paths: glob.sync(`${purgePath.src}/**/*`, { nodir: true }),
     }),
     // new BundleAnalyzerPlugin({}),
     new MiniCss(),
