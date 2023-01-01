@@ -3,6 +3,10 @@
   color: blue ;
 }
 
+.butttonScoped { 
+  background-color: purple;
+} 
+
 :global(.button) { 
  color: yellow ;
 }

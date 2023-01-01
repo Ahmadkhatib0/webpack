@@ -20,5 +20,5 @@ btn.addEventListener('click', function () {
   })
 })
 
-btn.classList.add([style.button])
+btn.classList.add([style.butttonScoped])
 logoEl.src = logo
