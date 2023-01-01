@@ -1,7 +1,10 @@
-import './index.css'
+import style from './index.css'
 import _ from 'lodash'
+import './ClearButton'
 
-document.getElementById('update-button').addEventListener('click', function () {
+const btn = document.getElementById('update-button')
+
+btn.addEventListener('click', function () {
   const el = document.getElementById('header')
   el.innerHTML = 'this is updated version'
 
@@ -14,3 +17,6 @@ document.getElementById('update-button').addEventListener('click', function () {
     listEl.appendChild(element)
   })
 })
+
+btn.classList.add([style.button]) // this one will throw an error, becuase we made  the button
+// css class global, and here we are trying to apply it by the scoped way, so this won't work

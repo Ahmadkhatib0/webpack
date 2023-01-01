@@ -10,7 +10,8 @@ module.exports = {
     rules: [
       {
         test: /.css$/,
-        use: ['style-loader', 'css-loader'], // order does matter, it execute from right to left
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader', options: { modules: true } }],
+        // use: ['style-loader', 'css-loader'], // order does matter, it execute from right to left
       },
     ],
   },

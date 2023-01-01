@@ -3,3 +3,7 @@
   color: blue ;
 }
 
+:global(.button) { 
+ color: yellow ;
+}
+
