@@ -5,6 +5,7 @@ import bootsrtap from 'bootstrap'
 import Typed from 'typed.js'
 import validate from 'validate.js'
 import toast from 'toastr'
+// import bannerImage from './assets/banner-image.png'
 
 import './index.css'
 import './_vendor.scss'
@@ -55,3 +56,6 @@ const footerCol3 = $('#footer-column-3')[0]
 buildFooterItems(footerCol1, footerCol1Items)
 buildFooterItems(footerCol2, footerCol2Items)
 buildFooterItems(footerCol3, footerCol3Items)
+
+// const bannerImg = $('#banner-img')[0]
+// bannerImg.src = bannerImage
