@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const MiniCss = require('mini-css-extract-plugin')
+const webpack = require('webpack')
 
 module.exports = {
   entry: {
@@ -35,6 +36,10 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      mnt: 'moment',
+      $: 'jquery',
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       chunks: ['index'],
