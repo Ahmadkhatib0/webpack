@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -15,6 +16,7 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
+    new ESLintWebpackPlugin(),
     new MiniCssExtractPlugin(),
   ],
   devServer: {
@@ -37,6 +39,10 @@ module.exports = {
             options: {
               presets: [['@babel/preset-env', { targets: 'defaults' }], '@babel/preset-react'],
             },
+          },
+          {
+            loader: 'eslint-loader',
+            options: { fix: true },
           },
         ],
       },
