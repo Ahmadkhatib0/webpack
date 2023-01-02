@@ -15,17 +15,32 @@ module.exports = {
       template: './src/index.html',
       filename: 'index.html',
     }),
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
+    port: 9000,
+    open: true,
+    historyApiFallback: true,
     static: {
       directory: path.resolve(__dirname, 'dist'),
-      port: 9000,
-      open: true,
     },
   },
 
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        include: path.resolve(__dirname, 'src'),
+        exclude: path.resolve(__dirname, 'node_modules'),
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [['@babel/preset-env', { targets: 'defaults' }], '@babel/preset-react'],
+            },
+          },
+        ],
+      },
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -39,5 +54,11 @@ module.exports = {
         type: 'asset/resource',
       },
     ],
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 }

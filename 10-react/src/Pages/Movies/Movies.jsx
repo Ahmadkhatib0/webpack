@@ -1,16 +1,16 @@
-import React from 'react';
-import logo from '../../assets/logo.png';
-import Button from '../../components/button/Button.jsx';
-import IconSlider from '../../components/IconSlider/IconSlider.jsx';
-import './Movies.scss';
-import { useHistory } from 'react-router-dom';
+import React from 'react'
+import logo from '../../assets/logo.png'
+import Button from '../../components/Button/Button.jsx'
+import IconSlider from '../../components/IconSlider/IconSlider.jsx'
+import './Movies.scss'
+import { useHistory } from 'react-router-dom'
 
 const Movies = () => {
-  const history = useHistory();
+  const history = useHistory()
 
   const logOut = () => {
-    history.push('/login');
-  };
+    history.push('/login')
+  }
 
   return (
     <div className="movies-main-container">
@@ -23,7 +23,7 @@ const Movies = () => {
       <IconSlider title="Continue Watching .."></IconSlider>
       <IconSlider title="To 10 Globally .."></IconSlider>
     </div>
-  );
-};
+  )
+}
 
-export default Movies;
+export default Movies

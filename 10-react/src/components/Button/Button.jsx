@@ -1,8 +1,8 @@
-import React from 'react';
-import './button.scss';
+import React from 'react'
+import './Button.scss'
 
 const Button = (props) => {
-  return <button {...props}>{props.title}</button>;
-};
+  return <button {...props}>{props.title}</button>
+}
 
-export default Button;
+export default Button
