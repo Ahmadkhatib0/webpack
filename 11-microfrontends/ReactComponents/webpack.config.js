@@ -19,10 +19,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'containers',
+      name: 'components',
       filename: 'remoteEntry.js',
       exposes: {
-        './Movie/Card': './src/components/MovieCard/MovieCard.jsx',
+        './MovieCard': './src/components/MovieCard/MovieCard.jsx',
         './BuyButton': './src/components/Button/BuyButton/BuyButton.jsx',
       },
     }),
