@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
   width: 220px;
   height: 60px;
-
+  
   background-color: var(--light-theme);
   cursor: pointer;
   font-size: 24px;
@@ -17,8 +17,8 @@
   overflow: hidden;
 
   border-radius: 5px;
-  box-shadow: 0 6px 30px -10px rgba(#cccccc, 1);
-
+  box-shadow: 0 6px 30px -10px rgba(#CCCCCC, 1);
+  
   &:hover {
     transform: translateX(5px) translateY(-7px);
   }
@@ -51,7 +51,7 @@
   div {
     border-radius: 5px;
   }
-
+  
   .snowflake-item {
     position: relative;
   }
@@ -79,6 +79,7 @@
 
 .border-left {
   border-left: 4px solid #e6dada;
+  
 }
 
 .border-right {
@@ -154,6 +155,6 @@
 
 @keyframes flash {
   50% {
-    border-color: #485563;
+    border-color: #485563; 
   }
 }

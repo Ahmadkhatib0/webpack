@@ -15,27 +15,9 @@ module.exports = {
       directory: path.resolve(__dirname, "dist"),
     },
     open: true,
-    port: 3003,
+    port: 9000,
+    historyApiFallback: true,
   },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "seatselection",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./SeatSelection":
-          "./src/components/SeatSelectionContent/SeatSelectionContent.jsx",
-      },
-      remotes:{
-        movieapp: "movieapp@http://localhost:9000/remoteEntry.js"
-      },
-      shared: ["react","react-dom"]
-    }),
-    new MiniCssExtractPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-    }),
-  ],
   module: {
     rules: [
       {
@@ -72,11 +54,39 @@ module.exports = {
           "sass-loader",
         ],
       },
+      {
+        test: /\.(png|jpeg|gif|jpg)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.webp$/i,
+        use: ["file-loader", "webp-loader"],
+      },
     ],
   },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "movieapp",
+      filename: "remoteEntry.js",
+      remotes: {
+        homepage: "home@http://localhost:3000/remoteEntry.js",
+        detailspage: "details@http://localhost:3001/remoteEntry.js",
+        seatselection: "seatselection@http://localhost:3003/remoteEntry.js"
+      },
+      exposes:{
+        "./MovieData": "./src/movieObservable.js"
+      },
+      shared: ["react", "react-dom"],
+    }),
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "index.html",
+    }),
+  ],
   optimization: {
     splitChunks: {
-      chunks: "async",
+      chunks: "all",
     },
   },
 };

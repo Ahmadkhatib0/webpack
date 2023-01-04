@@ -1,33 +1,34 @@
-import React, { useEffect, useState, Suspense } from 'react';
-import QuickBooking from '../QuickBooking/QuickBooking.jsx';
-const MovieCard  = React.lazy(() => import('components/MovieCard'))
-import './HomeContent.scss';
+import React, { Suspense, useEffect, useState } from "react";
+import QuickBooking from "../QuickBooking/QuickBooking.jsx";
+const MovieCard = React.lazy(() => import("components/MovieCard"));
+import RoutingContext from "../../utils/RoutingProvider";
+import "./HomeContent.scss";
 
-const dummyItem = [{ name: 'Dummy Movie' }];
+const dummyItem = [{ name: "Dummy Movie" }];
 
 const HomeContent = (props) => {
   const [movies, setMovies] = useState(dummyItem);
 
   useEffect(async () => {
-    const movies =await  fetch("http://localhost:5555/movies")
-    const data = await movies.json() 
-    
+    // Add the logic to load the movies from server and set to the state
+    const resp = await fetch("http://localhost:5555/movies");
+    const data = await resp.json();
+    setMovies(data);
+    console.log(data);
   }, []);
 
   const movieClicked = (item) => {
-    if (typeof props.movieClicked === 'function') {
+    if (typeof props.movieClicked === "function") {
       props.movieClicked(item);
     }
+    console.log(item);
   };
 
   const renderMovieList = () => {
     let items = movies.map((item) => {
       return (
         <div onClick={() => movieClicked(item)} key={item.name}>
-          <div>Load the cards Here</div>
-           <Suspense fallback={null}>
-             <MovieCard></MovieCard> 
-          </Suspense>
+          <MovieCard title={item.name} imageUrl={item.imageUrl}></MovieCard>
         </div>
       );
     });
@@ -37,8 +38,12 @@ const HomeContent = (props) => {
 
   return (
     <div className="home-content-container">
-      <QuickBooking></QuickBooking>
-      <div className="movies-container">{renderMovieList()}</div>
+      <RoutingContext.Provider value={props.routing}>
+        <QuickBooking></QuickBooking>
+        <div className="movies-container">
+          <Suspense fallback={null}>{renderMovieList()}</Suspense>
+        </div>
+      </RoutingContext.Provider>
     </div>
   );
 };

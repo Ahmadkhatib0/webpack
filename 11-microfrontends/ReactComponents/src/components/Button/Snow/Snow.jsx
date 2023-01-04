@@ -1,5 +1,5 @@
-import React from 'react';
-import './Snow.scss';
+import React from "react";
+import "./Snow.scss";
 
 function MovingButton(props) {
   return (

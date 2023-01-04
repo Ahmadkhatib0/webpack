@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './SeatSelectionContent.scss';
+import React, { useEffect, useState } from "react";
+import "./SeatSelectionContent.scss";
 
 const SeatSelectionContent = () => {
   const [bookingData, setBookingData] = useState({
-    movie: 'Select Movie',
-    date: 'Select Date',
-    time: 'Select Time',
-    imageUrl: '',
+    movie: "Select Movie",
+    date: "Select Date",
+    time: "Select Time",
+    imageUrl: "",
   });
   const [seatsCount, setSeatsCount] = useState(0);
 
   const loadBooking = async (booking) => {
-    const resp = await fetch('http://localhost:5555/movies');
+    const resp = await fetch("http://localhost:5555/movies");
     const data = await resp.json();
 
     const selectedMovie = data.filter((movie) => {
@@ -26,18 +26,30 @@ const SeatSelectionContent = () => {
     });
   };
 
+  useEffect(() => {
+    import("movieapp/MovieData").then((module) => {
+      const movieData = module.default;
+      movieData.subscribe({
+        next: (val) => {
+          console.log(`Movie data received is`, val)
+          loadBooking(val);
+        },
+      });
+    });
+  }, []);
+
   const renderImage = () => {
     const imgUrl = `http://localhost:5555/images/${bookingData.imageUrl}`;
     return <img src={imgUrl}></img>;
   };
 
   const toggleSeatSelection = (e) => {
-    if (e.target.classList.contains('selected')) {
+    if (e.target.classList.contains("selected")) {
       setSeatsCount(seatsCount - 1);
     } else {
       setSeatsCount(seatsCount + 1);
     }
-    e.target.classList.toggle('selected');
+    e.target.classList.toggle("selected");
   };
 
   const renderSeats = () => {

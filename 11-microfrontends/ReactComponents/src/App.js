@@ -1,22 +1,22 @@
-import React from 'react';
-import './App.scss';
+import React from "react";
+import "./App.scss";
 import MovieCard from './components/MovieCard/MovieCard.jsx';
 import {
   SnowButton,
   BuyButton,
   SimpleButton,
   GlitchButton,
-} from './components/Button/index.js';
-import Typography from './components/Typography/Typography.jsx';
-import DropDown from './components/DropDown/DropDown.jsx';
+} from "./components/Button/index.js";
+import Typography from "./components/Typography/Typography.jsx";
+import DropDown from "./components/DropDown/DropDown.jsx";
 
 let dropdownList = [
-  { value: '1', text: 'Avengers End Game' },
-  { value: '2', text: 'Spiderman' },
-  { value: '3', text: 'IronMan' },
-  { value: '4', text: 'Doctor Strange' },
-  { value: '5', text: 'Black Panther' },
-  { value: '6', text: 'Thor' },
+  { value: "1", text: "Avengers End Game" },
+  { value: "2", text: "Spiderman" },
+  { value: "3", text: "IronMan" },
+  { value: "4", text: "Doctor Strange" },
+  { value: "5", text: "Black Panther" },
+  { value: "6", text: "Thor" },
 ];
 
 const App = () => {

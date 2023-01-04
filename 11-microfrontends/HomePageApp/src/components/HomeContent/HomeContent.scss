@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-.home-content-container {
+.home-content-container{
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  
 }
 
 .movies-container {
@@ -31,7 +31,7 @@
   span {
     margin-top: 10px;
     font-size: 20px;
-    font-family: 'Lobster', cursive;
+    font-family: "Lobster", cursive;
   }
   :hover {
     cursor: pointer;

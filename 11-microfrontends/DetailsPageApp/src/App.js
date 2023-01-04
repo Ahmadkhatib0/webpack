@@ -1,6 +1,6 @@
-import React from 'react';
-import './App.scss';
-import DetailsContent from './components/DetailsContent/DetailsContent.jsx';
+import React from "react";
+import "./App.scss";
+import DetailsContent from "./components/DetailsContent/DetailsContent.jsx";
 
 const App = () => {
   return (

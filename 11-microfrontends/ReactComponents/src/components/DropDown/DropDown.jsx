@@ -1,7 +1,7 @@
-import React from 'react';
-import './DropDown.scss';
+import React from "react";
+import "./DropDown.scss";
 
-const Dropdown = ({ options = [] }) => {
+const Dropdown = ({ options=[] }) => {
   return (
     <select>
       {options.map((option) => (

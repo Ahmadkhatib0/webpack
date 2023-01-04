@@ -1,7 +1,7 @@
 //Credit: https://freefrontend.com/css-buttons/
 
-import React from 'react';
-import './BuyButton.scss';
+import React from "react";
+import "./BuyButton.scss";
 
 function BuyButton(props) {
   return (

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import './Typography.scss';
 
 const Typography = ({ type, text }) => {
   const renderTypography = () => {
     switch (type) {
-      case 'title':
+      case "title":
         return <span className="title">{text}</span>;
-      case 'paragraph':
+      case "paragraph":
         return <span className="paragraph">{text}</span>;
       default:
         return <span>{text}</span>;
